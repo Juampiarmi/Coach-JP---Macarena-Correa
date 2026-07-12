@@ -214,10 +214,6 @@
   .exercise-name sub { display: block; font-size: 13px; color: var(--text-secondary); font-style: normal; margin-top: 6px; line-height: 1.5; font-family: 'Inter', sans-serif; }
   .exercise-name sub b { color: var(--text-primary); }
   .exercise-name .sub-block-title { display: inline-block; background: rgba(255, 61, 0, 0.1); border-left: 2px solid var(--fire); color: var(--fire-glow); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; padding: 1px 6px; border-radius: 0 4px 4px 0; margin-bottom: 6px; font-weight: 700; }
-  
-  .exercise-video-link { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: rgba(255, 61, 0, 0.08); border: 1px solid rgba(255, 61, 0, 0.2); border-radius: 6px; color: var(--fire-glow); transition: all 0.2s ease; flex-shrink: 0; cursor: pointer; margin-top: 2px; }
-  .exercise-video-link:hover { background: var(--fire); color: #fff; border-color: var(--fire); transform: translateY(-1px); }
-  .exercise-video-link svg { width: 12px; height: 12px; fill: currentColor; }
 
   .exercise-detail { font-size: 13px; color: var(--text-secondary); text-align: right; max-width: 30%; line-height: 1.4; }
   .exercise-detail b { display: block; color: var(--text-primary); font-weight: 600; font-size: 14px; margin-bottom: 4px; }
@@ -315,9 +311,6 @@
       <button class="modal-close" id="modal-close" aria-label="Cerrar">&#x2715;</button>
     </div>
     <div class="modal-body" id="modal-body">
-      <div id="video-player-container" style="display:none; margin-bottom:16px; background:#000; border-radius:12px; overflow:hidden; border:1px solid var(--border);">
-         <iframe id="modal-video-frame" style="width:100%; height:360px; border:none;" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
       <div id="modal-exercises-content"></div>
     </div>
     <div class="modal-footer">
@@ -354,12 +347,12 @@ const workouts = [
       { name: "Warm Up / Activación Lumbopélvica y Glúteos", video: "", sub: "2 vueltas fluidas de: 10 Puentes de glúteo, 10 Caminatas laterales con banda en los pies y 5 Transiciones de plancha alta a estocada profunda para abrir caderas.", reps: "5 Minutos", detail: "<b>Ritmo controlado</b>" }
     ],
     main: [
-      { name: "Sentadilla Búlgara con Mancuernas (Énfasis Anterior)", video: "https://www.youtube.com/embed/or1frhkjBDc", sub: "Mancuernas a los costados del cuerpo. Bajar lento controlando el movimiento. <b>Interset Activo:</b> Al terminar cada serie con ambas piernas, realizar inmediatamente 30 segundos de plancha Hollow Body estática en el suelo.", reps: "4 series x 6-8 reps", detail: "<b>Tempo: 3.0.1.0</b><br>Pausa: 20'' entre piernas; 2 min sets" },
-      { name: "SUPER SERIE DE TRACCIÓN POSTERIOR Y EMPUJE ESTABLE", video: "", sub: "<span class='sub-block-title'>A1</span> <b>Peso Muerto Rumano con Barra (RDL):</b> 8 a 10 reps estrictas enfocadas en la palanca de isquios y glúteos. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/2MWhf_vG0Vw')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video RDL</a><br><br><span class='sub-block-title'>A2</span> <b>Remo con Barra Libre (Toma Prona):</b> 10 repeticiones fijando el torso a 45 grados. Traccionar sólido hacia la boca del estómago.<br><br><span class='sub-block-title'>A3</span> <b>Flexiones de Brazos (Push-Ups) Inestables:</b> 10 repeticiones con manos apoyadas sobre pelota medicinal o disco para activar estabilizadores de hombro.", reps: "3-4 Rondas Completas", detail: "<b>Sin pausas internas</b><br>Descanso completo al terminar A3" }
+      { name: "Sentadilla Búlgara con Mancuernas (Énfasis Anterior)", video: "", sub: "Mancuernas a los costados del cuerpo. Bajar lento controlando el movimiento. <b>Interset Activo:</b> Al terminar cada serie con ambas piernas, realizar inmediatamente 30 segundos de plancha Hollow Body estática en el suelo.", reps: "4 series x 6-8 reps", detail: "<b>Tempo: 3.0.1.0</b><br>Pausa: 20'' entre piernas; 2 min sets" },
+      { name: "SUPER SERIE DE TRACCIÓN POSTERIOR Y EMPUJE ESTABLE", video: "", sub: "<span class='sub-block-title'>A1</span> <b>Peso Muerto Rumano con Barra (RDL):</b> 8 a 10 reps estrictas enfocadas en la palanca de isquios y glúteos.<br><br><span class='sub-block-title'>A2</span> <b>Remo con Barra Libre (Toma Prona):</b> 10 repeticiones fijando el torso a 45 grados. Traccionar sólido hacia la boca del estómago.<br><br><span class='sub-block-title'>A3</span> <b>Flexiones de Brazos (Push-Ups) Inestables:</b> 10 repeticiones con manos apoyadas sobre pelota medicinal o disco para activar estabilizadores de hombro.", reps: "3-4 Rondas Completas", detail: "<b>Sin pausas internas</b><br>Descanso completo al terminar A3" }
     ],
     metcon: [
       { name: "TRISERIE DE REMATE ANTERIOR Y ANTI-ROTACIÓN", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Sillón de Extensiones de Cuádriceps:</b> 12 repeticiones marcando 1 segundo de isometría pura arriba.<br><br><span class='sub-block-title'>B2</span> <b>Camilla de Flexión Femoral (Sentada o Acostada):</b> 12 repeticiones controlando la fase de estiramiento.<br><br><span class='sub-block-title'>B3</span> <b>Press Pallof Isométrico con Banda o Polea:</b> Sostener 15 segundos estrictos por cada lado forzando el bloqueo lateral del core.", reps: "3 Series Efectivas", detail: "<b>Descanso: 90s al terminar B3</b>" },
-      { name: "Corework: Control de Descenso y Postura Lumbar", video: "", sub: "Circuito continuado para robustez del tronco anterior/posterior: 1. <b>Abdominales combinados (Sit-Ups) con disco:</b> 15 repeticiones contra el pecho. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/K2m0jj6RfYg')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Sit-Ups</a> -> 2. <b>Espinales cruzados en colchoneta (Supermans):</b> 20 repeticiones lentas.", reps: "3 Series Fijas", detail: "<b>Descanso: 45s entre rondas</b>" }
+      { name: "Corework: Control de Descenso y Postura Lumbar", video: "", sub: "Circuito continuado para robustez del tronco anterior/posterior: 1. <b>Abdominales combinados (Sit-Ups) con disco:</b> 15 repeticiones contra el pecho. -> 2. <b>Espinales cruzados en colchoneta (Supermans):</b> 20 repeticiones lentas.", reps: "3 Series Fijas", detail: "<b>Descanso: 45s entre rondas</b>" }
     ],
     technicalAnalysis: {
       objectives: "Desarrollar la fuerza unilateral en las piernas para corregir desbalances en el pedaleo, potenciar la estabilidad de la cintura escapular y el core, protegiendo la zona lumbar ante las vibraciones y fatiga de las horas arriba de la bici.",
@@ -380,12 +373,12 @@ const workouts = [
       { name: "Warm Up / Movilidad y Ajuste Escapular", video: "", sub: "2 vueltas controladas de: 10 Rotaciones de hombro con banda elástica, 10 Puentes de glúteo unilaterales corporales y 10 Cat-camels espinales.", reps: "5 Minutos", detail: "<b>Movilidad articular</b>" }
     ],
     main: [
-      { name: "Peso Muerto con Carga Pesada (RDL Estricto)", video: "https://www.youtube.com/embed/2MWhf_vG0Vw", sub: "Bisagra de cadera pura manteniendo barra o mancuernas muy cerca de las espinillas. Subida potente. <b>Interset Activo:</b> Realizar inmediatamente al terminar cada set 10 repeticiones de espinales en banco romano o colchoneta.", reps: "4 series x 6-8 reps", detail: "<b>RPE: Moderado-Alto</b><br>Descanso: 2 minutos completos" },
-      { name: "SUPER SERIE DE TRACCIÓN VERTICAL Y CORE LATERAL", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Jalón al Pecho con Toma Neutra:</b> 8 a 10 repeticiones estrictas controlando el regreso de la barra. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/W2x6zP9k7SM')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Jalón</a><br><br><span class='sub-block-title'>B2</span> <b>Press de Hombros Sentado con Mancuernas:</b> 10 repeticiones estrictas buscando firmeza del deltoides.<br><br><span class='sub-block-title'>B3</span> <b>Paseo de Granjero Unilateral (Farmer's Walk a una mano):</b> Caminar 20 pasos de ida y vuelta sosteniendo una mancuerna pesada de un solo lado para forzar oblicuos.", reps: "3-4 Rondas Efectivas", detail: "<b>Tracción vertical</b><br>Descanso al finalizar el bloque B" }
+      { name: "Peso Muerto con Carga Pesada (RDL Estricto)", video: "", sub: "Bisagra de cadera pura manteniendo barra o mancuernas muy cerca de las espinillas. Subida potente. <b>Interset Activo:</b> Realizar inmediatamente al terminar cada set 10 repeticiones de espinales en banco romano o colchoneta.", reps: "4 series x 6-8 reps", detail: "<b>RPE: Moderado-Alto</b><br>Descanso: 2 minutos completos" },
+      { name: "SUPER SERIE DE TRACCIÓN VERTICAL Y CORE LATERAL", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Jalón al Pecho con Toma Neutra:</b> 8 a 10 repeticiones estrictas controlando el regreso de la barra.<br><br><span class='sub-block-title'>B2</span> <b>Press de Hombros Sentado con Mancuernas:</b> 10 repeticiones estrictas buscando firmeza del deltoides.<br><br><span class='sub-block-title'>B3</span> <b>Paseo de Granjero Unilateral (Farmer's Walk a una mano):</b> Caminar 20 pasos de ida y vuelta sosteniendo una mancuerna pesada de un solo lado para forzar oblicuos.", reps: "3-4 Rondas Efectivas", detail: "<b>Tracción vertical</b><br>Descanso al finalizar el bloque B" }
     ],
     metcon: [
-      { name: "TRISERIE POSTURAL COMPENSATORIA", video: "", sub: "<span class='sub-block-title'>C1</span> <b>Face Pull en Polea Alta con Soga:</b> 15 repeticiones abriendo codos hacia afuera para corregir la postura típica de bici. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/IeOqdw9WI90')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Face Pull</a><br><br><span class='sub-block-title'>C2</span> <b>Elevación de Talones en Step (Gemelos de pie):</b> 15 repeticiones controladas haciendo pausas de 2 segundos tanto abajo como arriba.<br><br><span class='sub-block-title'>C3</span> <b>Vuelos Laterales de Pie con Mancuernas:</b> 12 repeticiones totalmente limpias.", reps: "3 Series de Remate", detail: "<b>Descanso: 90s al terminar C3</b>" },
-      { name: "Corework: Resistencia Rígida del Tronco", video: "", sub: "Bloque de estabilidad ininterrumpido: 1. <b>Elevaciones de rodillas colgada de barra (o Reverse crunches):</b> 15 repeticiones sin balancear las caderas. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/Gtv_pe0E42U')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Rodillas</a> -> 2. <b>Plancha Lateral Isométrica rígida:</b> 30 segundos aguantando la posición por cada lado.", reps: "3 Series Totales", detail: "<b>Descanso: 45s entre rondas</b>" }
+      { name: "TRISERIE POSTURAL COMPENSATORIA", video: "", sub: "<span class='sub-block-title'>C1</span> <b>Face Pull en Polea Alta con Soga:</b> 15 repeticiones abriendo codos hacia afuera para corregir la postura típica de bici.<br><br><span class='sub-block-title'>C2</span> <b>Elevación de Talones en Step (Gemelos de pie):</b> 15 repeticiones controladas haciendo pausas de 2 segundos tanto abajo como arriba.<br><br><span class='sub-block-title'>C3</span> <b>Vuelos Laterales de Pie con Mancuernas:</b> 12 repeticiones totalmente limpias.", reps: "3 Series de Remate", detail: "<b>Descanso: 90s al terminar C3</b>" },
+      { name: "Corework: Resistencia Rígida del Tronco", video: "", sub: "Bloque de estabilidad ininterrumpido: 1. <b>Elevaciones de rodillas colgada de barra (o Reverse crunches):</b> 15 repeticiones sin balancear las caderas. -> 2. <b>Plancha Lateral Isométrica rígida:</b> 30 segundos aguantando la posición por cada lado.", reps: "3 Series Totales", detail: "<b>Descanso: 45s entre rondas</b>" }
     ],
     technicalAnalysis: {
       objectives: "Fortalecer los erectores espinales, glúteos e isquiotibiales (cadena posterior) para contrarrestar la fatiga posicional en salidas largas, además de optimizar la fuerza de agarre y control del tren superior.",
@@ -407,11 +400,11 @@ const workouts = [
     ],
     main: [
       { name: "Prensa de Piernas Inclinada a 45 Grados", video: "", sub: "Colocar los pies al centro del carro para enfocar el esfuerzo en los cuádriceps. Empujar de forma potente. <b>Interset Activo:</b> Realizar inmediatamente al soltar la prensa 12 repeticiones de flexiones de brazos tradicionales.", reps: "4 series x 10 repeticiones", detail: "<b>Empuje potente controlado</b><br>Descanso: 90 segundos" },
-      { name: "SUPER SERIE UNILATERAL PROPIOCEPTIVA Y TRACCIÓN", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Peso Muerto Rumano Unilateral (a una pierna):</b> 10 repeticiones por lado manteniendo el equilibrio con una mancuerna. Estímulo propioceptivo clave.<br><br><span class='sub-block-title'>B2</span> <b>Remo Unilateral con Mancuerna apoyada en banco:</b> 10 repeticiones pesadas traccionando el codo hacia la cadera por cada lado. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/vu_YDt9nGv4')\" style='color:var(--text-primary); text-decoration:underline; cursor:pointer;'>Ver Video Remo</a>", reps: "3 Rondas Efectivas", detail: "<b>Control neuromuscular</b><br>Descanso al terminar ambas piernas" }
+      { name: "SUPER SERIE UNILATERAL PROPIOCEPTIVA Y TRACCIÓN", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Peso Muerto Rumano Unilateral (a una pierna):</b> 10 repeticiones por lado manteniendo el equilibrio con una mancuerna. Estímulo propioceptivo clave.<br><br><span class='sub-block-title'>B2</span> <b>Remo Unilateral con Mancuerna apoyada en banco:</b> 10 repeticiones pesadas traccionando el codo hacia la cadera por cada lado.", reps: "3 Rondas Efectivas", detail: "<b>Control neuromuscular</b><br>Descanso al terminar ambas piernas" }
     ],
     metcon: [
       { name: "TRISERIE DE RESISTENCIA Y HOMBRO POSTERIOR", video: "", sub: "<span class='sub-block-title'>C1</span> <b>Sillón de Extensiones de Cuádriceps:</b> 15 repeticiones fluidas sin pausas arriba.<br><br><span class='sub-block-title'>C2</span> <b>Vuelos Posteriores con Mancuernas:</b> 12 a 15 repeticiones inclinando el torso adelante para remate de la porción trasera del hombro.<br><br><span class='sub-block-title'>C3</span> <b>Elevación de Talones Sentada (Sóleos):</b> 20 repeticiones controlando los rangos de flexión.", reps: "3 Series de Resistencia", detail: "<b>Descanso: 60s al finalizar C3</b>" },
-      { name: "Core Metcon: Vaciado Rotacional del Tronco", video: "", sub: "Circuito abdominal rápido: 1. <b>Giros Rusos (Russian Twists) con disco liviano:</b> 20 repeticiones por lado buscando agilidad de giro. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/uIGn2y3yBGI')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Giros</a> -> 2. <b>Abdominales cortos (Crunches) en colchoneta:</b> 25 repeticiones bien concentradas.", reps: "3 Series de Vaciado", detail: "<b>Descanso corto: 30s</b>" }
+      { name: "Core Metcon: Vaciado Rotacional del Tronco", video: "", sub: "Circuito abdominal rápido: 1. <b>Giros Rusos (Russian Twists) con disco liviano:</b> 20 repeticiones por lado buscando agilidad de giro. -> 2. <b>Abdominales cortos (Crunches) en colchoneta:</b> 25 repeticiones bien concentradas.", reps: "3 Series de Vaciado", detail: "<b>Descanso corto: 30s</b>" }
     ],
     technicalAnalysis: {
       objectives: "Brindar un estímulo complementario de resistencia muscular localizada en las piernas (cuádriceps/isquios) y mejorar el control motor y equilibrio bajo fatiga.",
@@ -424,19 +417,12 @@ const workouts = [
 let completedWorkouts = JSON.parse(localStorage.getItem('jp_completed_v3')) || [];
 
 window.playModalVideo = function(url) {
-  const container = document.getElementById('video-player-container');
-  const iframe = document.getElementById('modal-video-frame');
-  if (iframe && container) {
-    iframe.src = url;
-    container.style.display = 'block';
-    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+  // Función mantenida por compatibilidad de estructura
 };
 
 function renderFilters() {
   const levels = [...new Set(workouts.map(w => w.level))];
   const filterLevelContainer = document.getElementById('filter-level');
-  
   filterLevelContainer.innerHTML = '<div class="chip active" data-group="level" data-val="all">Todos los Días</div>';
   
   levels.forEach(lvl => {
@@ -463,7 +449,6 @@ function renderFilters() {
 function filterGrid() {
   const discVal = document.querySelector('.chip[data-group="disc"].active').getAttribute('data-val');
   const levelVal = document.querySelector('.chip[data-group="level"].active').getAttribute('data-val');
-  
   let filtered = workouts;
   
   if (discVal !== 'all') {
@@ -472,7 +457,6 @@ function filterGrid() {
   if (levelVal !== 'all') {
     filtered = filtered.filter(w => w.levelSlug === levelVal);
   }
-  
   renderGrid(filtered);
 }
 
@@ -481,16 +465,11 @@ function renderGrid(data) {
   const meta = document.getElementById('grid-meta');
   grid.innerHTML = '';
   
-  const realWorkoutsCount = workouts.filter(w => !w.isRest).length;
-  document.getElementById('stat-count').textContent = realWorkoutsCount;
+  document.getElementById('stat-count').textContent = workouts.length;
   document.getElementById('stat-done').textContent = completedWorkouts.length;
   
   if (data.length === 0) {
-    grid.innerHTML = `
-      <div class="empty">
-        <h3>No se encontraron rutinas asignadas</h3>
-        <p>Modifica los filtros de navegación superiores.</p>
-      </div>`;
+    grid.innerHTML = `<div class="empty"><h3>No se encontraron rutinas</h3></div>`;
     meta.textContent = "Mostrando 0 rutinas";
     return;
   }
@@ -500,7 +479,6 @@ function renderGrid(data) {
   data.forEach(w => {
     const isCompleted = completedWorkouts.includes(w.id);
     const card = document.createElement('div');
-    
     card.className = `card ${isCompleted ? 'completed' : ''}`;
     card.setAttribute('data-id', w.id);
     card.innerHTML = `
@@ -509,7 +487,7 @@ function renderGrid(data) {
         <div class="card-tags">
           <span class="tag tag-disc-musculacion">${w.discipline}</span>
           <span class="tag tag-level-avanzado">${w.level}</span>
-          <span class="tag tag-gender">Femenino</span>
+          <span class="tag tag-gender">MTB Rider</span>
         </div>
         <h2>${w.title}</h2>
         <p class="card-desc"><b>${w.subtitle}</b> — ${w.desc}</p>
@@ -517,8 +495,7 @@ function renderGrid(data) {
       <div class="card-footer">
         <div class="card-meta-info">
           <div class="meta-item">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <span>Reproductor Nativo Integrado</span>
+            <span>Bloques de Transferencia Deportiva</span>
           </div>
         </div>
         <button>${isCompleted ? 'Completado ✓' : 'Ver Rutina'}</button>
@@ -527,26 +504,16 @@ function renderGrid(data) {
     card.addEventListener('click', function() {
       openModal(w);
     });
-    
     grid.appendChild(card);
   });
 }
 
 function openModal(w) {
-  if (w.isRest) return;
-  
   const overlay = document.getElementById('overlay');
   const title = document.getElementById('modal-title');
   const tags = document.getElementById('modal-tags');
   const bodyContent = document.getElementById('modal-exercises-content');
   const btnComplete = document.getElementById('btn-complete');
-  
-  const videoContainer = document.getElementById('video-player-container');
-  const videoFrame = document.getElementById('modal-video-frame');
-  if (videoFrame && videoContainer) {
-    videoFrame.src = "";
-    videoContainer.style.display = 'none';
-  }
   
   title.innerHTML = `${w.title}<br><span style="font-size:14px; font-family:'Inter'; font-weight:400; color:var(--text-secondary);">${w.subtitle}</span>`;
   tags.innerHTML = `
@@ -555,60 +522,30 @@ function openModal(w) {
   `;
   
   let html = '';
-  
-  const getExerciseRow = (ex, idx) => {
-    let videoButtonHtml = '';
-    if (ex.video) {
-      videoButtonHtml = `
-        <div onclick="window.playModalVideo('${ex.video}'); event.stopPropagation();" class="exercise-video-link" title="Ver video en reproductor interno">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      `;
-    }
-    return `
-      <div class="exercise-row">
-        <div class="exercise-num">${idx + 1}</div>
-        <div class="exercise-title-container">
-          <div class="exercise-name">${ex.name}<sub>${ex.sub}</sub></div>
-          ${videoButtonHtml}
-        </div>
-        <div class="exercise-detail"><b>${ex.reps}</b>${ex.detail ? ex.detail : ''}</div>
+  const getExerciseRow = (ex, idx) => `
+    <div class="exercise-row">
+      <div class="exercise-num">${idx + 1}</div>
+      <div class="exercise-title-container">
+        <div class="exercise-name">${ex.name}<sub>${ex.sub}</sub></div>
       </div>
-    `;
-  };
+      <div class="exercise-detail"><b>${ex.reps}</b>${ex.detail ? ex.detail : ''}</div>
+    </div>
+  `;
   
   if (w.warmup && w.warmup.length > 0) {
-    html += `
-      <div class="block">
-        <div class="block-header">
-          <div class="block-title warmup">🔥 Warm Up / Calentamiento Específico (5 min)</div>
-        </div>
-        <div class="block-content">
-    `;
+    html += `<div class="block"><div class="block-header"><div class="block-title warmup">🔥 Warm Up / Calentamiento Específico (5 min)</div></div><div class="block-content">`;
     w.warmup.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
     html += `</div></div>`;
   }
   
   if (w.main && w.main.length > 0) {
-    html += `
-      <div class="block">
-        <div class="block-header">
-          <div class="block-title main">🏋️‍♂️ Fuerza Axial / Estímulo Mecánico Central</div>
-        </div>
-        <div class="block-content">
-    `;
+    html += `<div class="block"><div class="block-header"><div class="block-title main">🏋️‍♂️ Fuerza Aplicada / Transferencia Deportiva</div></div><div class="block-content">`;
     w.main.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
     html += `</div></div>`;
   }
   
   if (w.metcon && w.metcon.length > 0) {
-    html += `
-      <div class="block">
-        <div class="block-header">
-          <div class="block-title metcon">⏱️ Bloque de Densidad MetCon / Escudo Core / Remates</div>
-        </div>
-        <div class="block-content">
-    `;
+    html += `<div class="block"><div class="block-header"><div class="block-title metcon">⏱️ Densidad de Núcleo & Resistencia Localizada</div></div><div class="block-content">`;
     w.metcon.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
     html += `</div></div>`;
   }
@@ -616,13 +553,11 @@ function openModal(w) {
   if (w.technicalAnalysis) {
     html += `
       <div class="block" style="border: 1px dashed rgba(124,77,255,0.3); background: rgba(124,77,255,0.01);">
-        <div class="block-header">
-          <div class="block-title" style="color: #B39DDB;">📋 Análisis Detallado e Indicaciones del Coach</div>
-        </div>
+        <div class="block-header"><div class="block-title" style="color: #B39DDB;">📋 Objetivos, Tips Técnicos y Estrategia del Bloque</div></div>
         <div class="block-content" style="font-size: 13.5px; color: var(--text-secondary); padding: 1rem 0;">
           <p style="margin-bottom: 0.75rem;"><strong>🎯 Objetivos del Bloque:</strong> ${w.technicalAnalysis.objectives}</p>
           <p style="margin-bottom: 0.75rem;"><strong>💡 Tips Técnicos:</strong> ${w.technicalAnalysis.tips}</p>
-          <p><strong>⚡ Estrategia de Periodización:</strong> ${w.technicalAnalysis.strategies}</p>
+          <p><strong>⚡ Estrategia del Coach:</strong> ${w.technicalAnalysis.strategies}</p>
         </div>
       </div>
     `;
@@ -658,8 +593,6 @@ function openModal(w) {
 
 function closeModal() {
   document.getElementById('overlay').classList.remove('open');
-  const iframe = document.getElementById('modal-video-frame');
-  if (iframe) iframe.src = "";
 }
 
 document.getElementById('modal-close').addEventListener('click', closeModal);
