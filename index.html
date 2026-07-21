@@ -285,8 +285,22 @@
   .exercise-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.3rem; color: var(--fire-glow); min-width: 24px; background: rgba(255,61,0,0.06); height: 28px; width: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
   .exercise-title-container { display: flex; align-items: flex-start; gap: 12px; flex: 1; max-width: 70%; }
   .exercise-name { font-weight: 700; font-size: 1.15rem; color: var(--text-primary); letter-spacing: 0.01em; }
-  .exercise-name sub { display: block; font-size: 14px; color: var(--text-secondary); font-style: normal; margin-top: 8px; line-height: 1.6; font-family: 'Inter', sans-serif; }
-  .exercise-name sub b { color: var(--text-primary); font-weight: 600; }
+  .exercise-explain-wrap { display: block; font-size: 14px; color: var(--text-secondary); font-style: normal; margin-top: 8px; line-height: 1.6; font-family: 'Inter', sans-serif; }
+  .exercise-explain-wrap b { color: var(--text-primary); font-weight: 600; }
+
+  .combo-exercise-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .combo-exercise-item { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 9px 12px; }
+  .combo-tag { font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; color: var(--violet-light); background: rgba(124,77,255,0.12); padding: 2px 8px; border-radius: 4px; flex-shrink: 0; }
+  .combo-exercise-info { flex: 1; min-width: 160px; display: flex; flex-direction: column; gap: 3px; }
+  .combo-exercise-name { font-weight: 600; font-size: 14px; color: var(--text-primary); line-height: 1.35; }
+  .combo-exercise-reps { font-size: 12.5px; color: var(--gold); font-weight: 600; }
+  .combo-exercise-item .video-link { margin-top: 0; flex-shrink: 0; }
+
+  .exercise-plain-sub { display: block; }
+
+  .explain-box { display: block; margin-top: 12px; padding: 12px 14px; background: rgba(255,214,0,0.04); border: 1px solid rgba(255,214,0,0.15); border-left: 3px solid var(--gold); border-radius: var(--radius-sm); font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+  .explain-box b { color: var(--text-primary); font-weight: 600; }
+  .explain-box + .explain-box { margin-top: 8px; }
   /* Contenedores semánticos resaltados dentro de sub */
   .sub-section { display: block; margin-top: 6px; padding-left: 4px; }
   .sub-block-title { font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; color: var(--violet-light); background: rgba(124,77,255,0.1); padding: 1px 7px; border-radius: 4px; display: inline-block; margin-right: 6px; }
@@ -492,22 +506,10 @@ const workouts = [
     ],
     "metcon": [
       {
-        "name": "Bloque 4: Farmer's Walk (Finisher — Fuerza de Agarre)",
-        "reps": "3 series x 30 a 40m",
-        "detail": "<b>Descanso</b><br>60s",
-        "sub": "Caminata del Granjero (Farmer's Walk). <a class='video-link' href='javascript:void(0)' data-yt='p5MNNosenJc'>▶ Ver técnica en video</a><br><span class='sub-section'>Transferencia directa de fuerza de agarre y antebrazo — la misma tensión isométrica de mano que sostenés en el manillar en cada bajada técnica, ahora entrenada en rangos metabólicos altos y con el core bracing activo en todo el recorrido.</span>"
-      },
-      {
-        "name": "Bloque 4: Farmer Carry Pesado con Zancada",
-        "reps": "3 series x 8 a 10 zancadas/pierna",
-        "detail": "<b>Carga pesada</b><br>Descanso 60s",
-        "sub": "Dumbbell Farmer Walking Lunges. <a class='video-link' href='javascript:void(0)' data-yt='aEdRVxSPNoU'>▶ Ver técnica en video</a><br><span class='sub-section'>La variante con zancada suma carga real bajo fatiga de agarre — el farmer carry pesado que le exige más al antebrazo y a la pierna en simultáneo.</span>"
-      },
-      {
-        "name": "Bloque 4: Patada de Glúteo en Polea a 45°",
-        "reps": "3 series x 12 a 15 rep./pierna",
-        "detail": "<b>Descanso</b><br>30s",
-        "sub": "45-Degree Cable Kickback. <a class='video-link' href='javascript:void(0)' data-yt='-SX0P8dEbWw'>▶ Ver técnica en video</a><br><span class='sub-section'>Cerramos con otra variante más de glúteo en polea, en rango metabólico alto para terminar la sesión con la congestión que tanto te gusta.</span>"
+        "name": "Bloque 4: Triserie Finisher de Agarre, Zancada y Glúteo",
+        "reps": "3 vueltas",
+        "detail": "<b>RPE 7</b><br>Descanso 60s post-ronda",
+        "sub": "<span class='sub-block-title'>C1</span> Caminata del Granjero (Farmer's Walk) = 30 a 40m. <a class='video-link' href='javascript:void(0)' data-yt='p5MNNosenJc'>▶ Ver técnica en video</a><br><span class='sub-block-title'>C2</span> Dumbbell Farmer Walking Lunges (Farmer Carry Pesado con Zancada) = 8 a 10 zancadas por pierna, carga pesada. <a class='video-link' href='javascript:void(0)' data-yt='aEdRVxSPNoU'>▶ Ver técnica en video</a><br><span class='sub-block-title'>C3</span> 45-Degree Cable Kickback (Patada de Glúteo en Polea a 45°) = 12 a 15 repeticiones por pierna. <a class='video-link' href='javascript:void(0)' data-yt='-SX0P8dEbWw'>▶ Ver técnica en video</a><br><span class='sub-section'>Cierre de la sesión en formato triserie: el Farmer's Walk transfiere directo a la fuerza de agarre y antebrazo — la misma tensión isométrica de mano que sostenés en el manillar en cada bajada técnica. La variante con zancada suma carga real bajo fatiga de agarre, exigiendo más al antebrazo y a la pierna en simultáneo. Cerramos con otra variante de glúteo en polea, en rango metabólico alto, para terminar la sesión con la congestión que tanto te gusta.</span>"
       }
     ],
     "technicalAnalysis": {
@@ -554,16 +556,10 @@ const workouts = [
     ],
     "metcon": [
       {
-        "name": "Bloque 4: Cable Standing Calf Raise",
-        "reps": "3 series x 15 a 20 rep.",
-        "detail": "<b>Descanso</b><br>30 a 45s",
-        "sub": "Elevación de Talones en Polea de Pie. <a class='video-link' href='javascript:void(0)' data-yt='vvaQhFbchVc'>▶ Ver técnica en video</a><br><span class='sub-section'>Gemelo y sóleo llevados a rango metabólico alto — el soporte directo del antepié sobre el pedal en cada pisada, sobre todo en tramos de pedaleo parado o ataques de potencia.</span>"
-      },
-      {
-        "name": "Bloque 4: Suitcase Carry (Caminata Valija Unilateral)",
-        "reps": "3 series x 20 a 25m/lado",
-        "detail": "<b>Descanso</b><br>45s",
-        "sub": "Suitcase Carry. <a class='video-link' href='javascript:void(0)' data-yt='iTjwbts8Djw'>▶ Ver técnica en video</a><br><span class='sub-section'>Sumamos agarre y antebrazo en formato unilateral, con la resistencia anti-flexión lateral de núcleo que también entrena la estabilidad de tronco sobre la bici.</span>"
+        "name": "Bloque 4: Superserie de Pantorrilla y Agarre Unilateral",
+        "reps": "3 vueltas",
+        "detail": "<b>Descanso</b><br>45s post-ronda",
+        "sub": "<span class='sub-block-title'>C1</span> Elevación de Talones en Polea de Pie (Cable Standing Calf Raise) = 15 a 20 repeticiones. <a class='video-link' href='javascript:void(0)' data-yt='vvaQhFbchVc'>▶ Ver técnica en video</a><br><span class='sub-block-title'>C2</span> Suitcase Carry (Caminata Valija Unilateral) = 20 a 25m por lado. <a class='video-link' href='javascript:void(0)' data-yt='iTjwbts8Djw'>▶ Ver técnica en video</a><br><span class='sub-section'>Cierre de la sesión en formato superserie: gemelo y sóleo llevados a rango metabólico alto — el soporte directo del antepié sobre el pedal en cada pisada, sobre todo en tramos de pedaleo parado o ataques de potencia — combinado con agarre y antebrazo en formato unilateral, sumando la resistencia anti-flexión lateral de núcleo que también entrena la estabilidad de tronco sobre la bici.</span>"
       }
     ],
     "technicalAnalysis": {
@@ -610,16 +606,10 @@ const workouts = [
     ],
     "metcon": [
       {
-        "name": "Bloque 4: Seated Calf Raises",
-        "reps": "2 a 3 series x 15 a 20 rep.",
-        "detail": "<b>Descanso</b><br>30s",
-        "sub": "Elevaciones de Talón Sentada. <a class='video-link' href='javascript:void(0)' data-yt='8BkvUI5i3EY'>▶ Ver técnica en video</a><br><span class='sub-section'>Bombeo final de pantorrilla en formato sentado, de menor exigencia que el finisher de pie del Día 2 — cierre puramente circulatorio para bajar del entreno con las piernas activadas, no fatigadas.</span>"
-      },
-      {
-        "name": "Bloque 4: Dumbbell Tibialis Raise",
-        "reps": "2 a 3 series x 15 rep.",
-        "detail": "<b>Descanso</b><br>30s",
-        "sub": "Elevación de Tibial Anterior. <a class='video-link' href='javascript:void(0)' data-yt='2amvxbpU20c'>▶ Ver técnica en video</a><br><span class='sub-section'>Sumamos tibial anterior, el músculo opuesto a la pantorrilla, para completar la salud de tobillo sin agregar ninguna carga real.</span>"
+        "name": "Bloque 4: Superserie de Pantorrilla y Tibial Anterior",
+        "reps": "2 a 3 vueltas",
+        "detail": "<b>Descanso</b><br>30s post-ronda",
+        "sub": "<span class='sub-block-title'>C1</span> Elevaciones de Talón Sentada (Seated Calf Raises) = 15 a 20 repeticiones. <a class='video-link' href='javascript:void(0)' data-yt='8BkvUI5i3EY'>▶ Ver técnica en video</a><br><span class='sub-block-title'>C2</span> Elevación de Tibial Anterior (Dumbbell Tibialis Raise) = 15 repeticiones. <a class='video-link' href='javascript:void(0)' data-yt='2amvxbpU20c'>▶ Ver técnica en video</a><br><span class='sub-section'>Cierre de la sesión en formato superserie: bombeo final de pantorrilla en formato sentado, de menor exigencia que el finisher de pie del Día 2 — cierre puramente circulatorio para bajar del entreno con las piernas activadas, no fatigadas — sumando tibial anterior, el músculo opuesto a la pantorrilla, para completar la salud de tobillo sin agregar ninguna carga real.</span>"
       }
     ],
     "technicalAnalysis": {
@@ -781,12 +771,81 @@ function renderGrid(data) {
     grid.appendChild(card);
   });
 }
+function renderExerciseSub(subHtml) {
+  if (!subHtml) return '';
+  const container = document.createElement('div');
+  container.innerHTML = subHtml;
+
+  // Separar: explicaciones/tips (sub-section) por un lado, líneas de ejercicio por otro
+  const explanationParts = [];
+  const lineGroups = [];
+  let currentLine = [];
+
+  Array.from(container.childNodes).forEach(node => {
+    if (node.nodeType === 1 && node.tagName === 'BR') {
+      if (currentLine.length) { lineGroups.push(currentLine); currentLine = []; }
+    } else if (node.nodeType === 1 && node.classList && node.classList.contains('sub-section')) {
+      explanationParts.push(node.innerHTML);
+    } else {
+      currentLine.push(node);
+    }
+  });
+  if (currentLine.length) lineGroups.push(currentLine);
+
+  const hasTags = lineGroups.some(line => line.some(n => n.nodeType === 1 && n.classList && n.classList.contains('sub-block-title')));
+
+  let out = '';
+
+  if (hasTags && lineGroups.length) {
+    out += '<div class="combo-exercise-list">';
+    lineGroups.forEach(lineNodes => {
+      const wrap = document.createElement('div');
+      lineNodes.forEach(n => wrap.appendChild(n.cloneNode(true)));
+
+      let tag = '';
+      const tagEl = wrap.querySelector('.sub-block-title');
+      if (tagEl) { tag = tagEl.textContent; tagEl.remove(); }
+
+      let linkHtml = '';
+      const linkEl = wrap.querySelector('.video-link');
+      if (linkEl) { linkHtml = linkEl.outerHTML; linkEl.remove(); }
+
+      let text = wrap.innerHTML.replace(/^\s+/, '').trim();
+      let name = text, reps = '';
+      const eqIdx = text.indexOf(' = ');
+      if (eqIdx > -1) {
+        name = text.slice(0, eqIdx).trim();
+        reps = text.slice(eqIdx + 3).trim().replace(/\.\s*$/, '');
+      }
+
+      out += `<div class="combo-exercise-item">` +
+        (tag ? `<span class="combo-tag">${tag}</span>` : '') +
+        `<div class="combo-exercise-info"><span class="combo-exercise-name">${name}</span>` +
+        (reps ? `<span class="combo-exercise-reps">${reps}</span>` : '') +
+        `</div>${linkHtml}</div>`;
+    });
+    out += '</div>';
+  } else if (lineGroups.length) {
+    const wrap = document.createElement('div');
+    lineGroups.forEach((lineNodes, i) => {
+      lineNodes.forEach(n => wrap.appendChild(n.cloneNode(true)));
+      if (i < lineGroups.length - 1) wrap.appendChild(document.createElement('br'));
+    });
+    out += `<div class="exercise-plain-sub">${wrap.innerHTML}</div>`;
+  }
+
+  if (explanationParts.length) {
+    explanationParts.forEach(p => { out += `<div class="explain-box">${p}</div>`; });
+  }
+
+  return out;
+}
 function getExerciseRow(ex, idx) {
   return `
     <div class="exercise-row">
       <div class="exercise-num">${idx + 1}</div>
       <div class="exercise-title-container">
-        <div class="exercise-name">${ex.name}<sub>${ex.sub}</sub></div>
+        <div class="exercise-name">${ex.name}<div class="exercise-explain-wrap">${renderExerciseSub(ex.sub)}</div></div>
       </div>
       <div class="exercise-detail"><b>${ex.reps}</b>${ex.detail ? ex.detail : ''}</div>
     </div>
